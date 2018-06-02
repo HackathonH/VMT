@@ -1,0 +1,3 @@
+http://ozekisms.com/index.php?owpn=164&info=mysql_sms //for mobile sms
+https://plot.ly/javascript/line-charts/        //for charts api
+http://www.instructables.com/id/How-to-send-SMS-from-a-PHP-website-through-HTTP-by/    //for send sms
