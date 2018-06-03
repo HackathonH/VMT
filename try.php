@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <title>VMT</title>
@@ -15,8 +18,20 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
   <span class="w3-bar-item w3-right">Logo</span>
+   <form method="get">
+  <input type="text" name="var" id="user" >
+  </form>  <input type="submit" onclick="val();">
+<?php
+  $_SESSION["name1"]="adarsh";
+  echo "session varible is ".$_SESSION["name1"];
+  ?>
 </div>
-
+<script>
+function val()
+{
+	document.getElementById("y").innerHTML="welcome  <h5> "+document.getElementById("user").value+"</h5>";
+}
+</script>
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
   <div class="w3-container w3-row">
@@ -24,11 +39,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
     </div>
     <div class="w3-col s8 w3-bar">
-      <span>Welcome, <strong>
-	  <?php
-	  $username="adarsh";
-	  echo $username;
-	  ?></strong></span><br>
+      <span id="y"><strong>
+	 </strong></span><br>
     </div>
   </div>
   <hr>
@@ -52,8 +64,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <header class="w3-container" style="padding-top:22px">
     <h5><b><i class="fa fa-car"></i> Vehicle Management Tracker</b></h5>
   </header>
-  <a href="users_mileage.php">
-
+ 
+ <a href="plot.php">
   <div class="w3-row-padding w3-margin-bottom">
     <div class="w3-quarter">
       <div class="w3-container w3-orange w3-padding-16">
@@ -65,7 +77,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <h4>Bikes</h4>
       </div>
     </div>
-	</a>
+</a>
 	<a href="users_mileage.php">
     <div class="w3-quarter">
       <div class="w3-container w3-white w3-padding-16">
@@ -250,6 +262,13 @@ function w3_close() {
     overlayBg.style.display = "none";
 }
 </script>
+<?php
+// remove all session variables
+session_unset(); 
+
+// destroy the session 
+session_destroy(); 
+?>
 
 </body>
 </html>
