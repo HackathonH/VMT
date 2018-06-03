@@ -1,0 +1,29 @@
+<html>
+
+
+    <body>
+        <button onclick="notifyMe();">Notification</button>
+   
+
+<script>
+
+function notifyMe() {
+  if (Notification.permission !== "granted")
+    Notification.requestPermission();
+  else {
+    var notification = new Notification('Notification title', {
+      icon: 'http://qnimate.com/wp-content/uploads/2014/07/web-notification-api-300x150.jpg',
+      body: "Hey there! You've been notified!",
+    });
+
+    notification.onclick = function () {
+      window.open("http://localhost:8080/VMT/plot/users_mileage.php");      
+    };
+
+  }
+
+}
+ 
+</script>
+ </body>
+</html>
