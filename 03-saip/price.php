@@ -3,11 +3,7 @@ session_start();
 include("config.php");	
 $var="";
 $price=70;
-if(isset($_SESSION['name1']))
-    {
-         $var = $_SESSION['name1'];
-        
-    }
+
    
 
   //if (isset($_POST['submit'])) {
@@ -70,8 +66,28 @@ var trace1 = {
 };
 
 var data = [trace1];
+var layout = {
+  title: 'Expenses from refill to refill',
+  xaxis: {
+    title: 'litres',
+    titlefont: {
+      family: 'Courier New, monospace',
+      size: 18,
+      color: '#7f7f7f'
+    }
+  },
+  yaxis: {
+    title: 'price',
+    titlefont: {
+      family: 'Courier New, monospace',
+      size: 18,
+      color: '#7f7f7f'
+    }
+  }
+};
 
-Plotly.newPlot('pli', data);
+
+Plotly.newPlot('pli', data,layout);
 
 </script></div>
 
