@@ -21,7 +21,8 @@ $var="xyz";
   <span class="w3-bar-item w3-right">Logo</span>
    <form method="get">
   <input type="text" name="var" id="user" >
-  </form>  <input type="submit" onclick="val();"></div>
+  <input type="submit" onclick="val();">
+  </form>  </div>
 <?php
 
   //$_SESSION['varname'] = $var_value;
@@ -41,7 +42,7 @@ function val()
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
   <div class="w3-container w3-row">
     <div class="w3-col s4">
-      <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
+      <img src="userImage.jpg" class="w3-circle w3-margin-right" style="width:46px">
     </div>
     <div class="w3-col s8 w3-bar">
       <span id="y"><strong>
@@ -122,10 +123,13 @@ function val()
     </div>
   </div>
 </a>
- 
+ <style>
+
+ </style>
+
   <hr>
   <div class="w3-container">
-    <h5>Mileage Status</h5>
+    <h5> Mileage Status </h5>
     <p>Your Avg Mileage</p>
     <div class="w3-grey">
 	<?php      include("config.php");
@@ -147,9 +151,35 @@ function val()
 		  $row2 = $res2->fetch_assoc();
 		  $mil =$row2['a'];
 		  $mil1 = number_format($mil, 2);
-		  
-		  }
+         
+    
+         }
     ?>
+ <script>
+var n1 = <?php echo $mil1 ?>;
+    if(n1 < 90){
+   notifyMe();
+}
+            function notifyMe() {
+                 
+               if (Notification.permission !== "granted")
+                    Notification.requestPermission();
+               else {
+                   var notification = new Notification('Vehicle Notification', {
+                   icon: 'http://qnimate.com/wp-content/uploads/2014/07/web-notification-api-300x150.jpg',
+                   body: " Hey there! please, check your mileage condition!",
+               });
+
+              notification.onclick = function () {
+              window.open("http://localhost:8080/VMT/3-6-2018/users_mileage.php");      
+              };
+
+              }
+
+            }
+ 
+ </script>
+
       <div class="w3-container w3-center w3-padding w3-green" style="width:<?php echo $mil1?>%"><?php echo $mil1?></div>
     </div>
 
@@ -190,7 +220,7 @@ function val()
 		  $mil_min =$row4['h1'];
           $v_name1 = $row4['n1'];
           echo "<strong style='color:red;'>".$v_name1."</strong>";
-          //echo "<strong>".$v_name1."</strong>";
+         
 		  }
     
        ?></p>
@@ -200,7 +230,7 @@ function val()
   </div>
   <hr>
 
-<!--<div class="w3-container">
+<div class="w3-container">
     <h5>Countries</h5>
     <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
       <tr>
@@ -296,7 +326,7 @@ function val()
       </div>
     </div>
   </div>
--->
+
   <!-- Footer -->
   
 
