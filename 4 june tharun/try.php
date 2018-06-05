@@ -144,7 +144,7 @@ function val()
 		  $id=$row1['user_id'];
 		  
 		  }
-		 $sql2= " select AVG(mileage) as a from mileage_details where user_id = $id group by user_id";
+		 $sql2= "select mileage as a from mileage_details where user_id = $id order by date desc limit 1";
 		 $res2 = $con->query($sql2);
 		 
 		  if ($res2->num_rows > 0){
