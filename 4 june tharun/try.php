@@ -80,7 +80,21 @@ function val()
       <div class="w3-container w3-orange w3-padding-16">
         <div class="w3-left"><i class="fa fa-bicycle w3-xxxlarge"></i></div>
         <div class="w3-right">
-          <h3>52</h3>
+          <h3><?php
+		  include("config.php");
+
+			$sql5 = "select count(*) as c from vehicle where vehicle_type = 'bike'";
+	        
+	      $res5 = $con->query($sql5);
+		
+		  if ($res5->num_rows > 0){
+		  $row5 = $res5->fetch_assoc();
+		  $id=$row5['c'];
+		  echo $id;
+		  
+		  }
+
+		  ?></h3>
         </div>
         <div class="w3-clear"></div>
         <h4>Bikes</h4>
@@ -92,7 +106,21 @@ function val()
       <div class="w3-container w3-white w3-padding-16">
         <div class="w3-left"><i class="fa fa-car w3-xxxlarge"></i></div>
         <div class="w3-right">
-          <h3>99</h3>
+          <h3><?php
+		  include("config.php");
+	       
+	        
+			$sql6 = "select count(*) as c from vehicle where vehicle_type = 'car'";
+	        
+	      $res6 = $con->query($sql6);
+		
+		  if ($res6->num_rows > 0){
+		  $row6 = $res6->fetch_assoc();
+		  $id=$row6['c'];
+		  echo $id;
+		  
+		  }
+		  ?></h3>
         </div>
         <div class="w3-clear"></div>
         <h4>Cars</h4>
@@ -114,7 +142,23 @@ function val()
       <div class="w3-container w3-green w3-text-white w3-padding-16">
         <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
         <div class="w3-right">
-          <h3>50</h3>
+          <h3><?php
+		  include("config.php");
+	       
+	        
+			$sql7 = "select count(*) as c from vehicle";
+	        
+	      $res7 = $con->query($sql7);
+		
+		  if ($res7->num_rows > 0){
+		  $row7 = $res7->fetch_assoc();
+		  $id=$row7['c'];
+		  echo $id;
+		  
+		  }
+		 
+ 
+		  ?></h3>
         </div>
         <div class="w3-clear"></div>
         <h4>Users</h4>
