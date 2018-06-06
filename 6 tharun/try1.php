@@ -54,6 +54,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
                     <div class="col-xs-2">
                         <div id="fh5co-logo">
                             <a href="">
+				    <div class="w3-col s4">
+                                            <img src="userImage.jpg" class="w3-circle w3-margin-right" style="width:50px">
+                                     </div>
                                   <span>VMT</span>
                                 </a>
                         </div>
